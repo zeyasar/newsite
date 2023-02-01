@@ -1,11 +1,13 @@
-
-import './App.css';
-import AppRouter from './router/AppRouter';
+import "./App.css";
+import NewsContextProvider from "./context/NewsContext";
+import AppRouter from "./router/AppRouter";
 
 function App() {
   return (
     <div className="App">
-      <AppRouter/>
+      <NewsContextProvider>
+        <AppRouter />
+      </NewsContextProvider>
     </div>
   );
 }

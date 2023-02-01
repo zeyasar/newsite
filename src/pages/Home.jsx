@@ -1,13 +1,20 @@
 import React from 'react'
-import Header from '../components/Header'
 import Slider from '../components/Slider'
+import Box from "@mui/material/Box";
 
 const Home = () => {
   return (
-    <div>
-        <Header/>
+    
+      <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+      }}
+    >
         <Slider/>
-    </div>
+      </Box>
+    
   )
 }
 
