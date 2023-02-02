@@ -73,6 +73,7 @@ export default function Header() {
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
+    console.log(anchorElNav)
   };
 
   const handleCloseNavMenu = () => {
@@ -84,6 +85,11 @@ export default function Header() {
     console.log(category)
     navigate(`/${category}`)
   }
+
+  const handleCategory = (category) => {
+    navigate(`/${category}`)
+  }
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="primary">
@@ -138,26 +144,26 @@ export default function Header() {
                 }}
               >
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">
+                  <Typography textAlign="center" onClick={() => navigate(`/`)}>
                     HOME
                   </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">
+                  <Typography textAlign="center" onClick={() => navigate(`/About`)}>
                     ABOUT
                   </Typography>
                 </MenuItem>
                 {categoryPages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">
+                    <Typography textAlign="center" onClick={() => handleCategory(page)}>
                       {page.toUpperCase()}
                     </Typography>
                   </MenuItem>
                 ))}
               </Menu>
             </Box>
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
 
+            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
                   onClick={()=>handleCloseCategory('')}
                   sx={{ my: 2, color: "white", display: "block" }}

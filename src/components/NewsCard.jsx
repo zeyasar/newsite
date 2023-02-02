@@ -21,7 +21,7 @@ const NewsCard = ({ item }) => {
           <Box sx={{ display: "flex", flexDirection: "column", width:'60%' }}>
             <CardContent sx={{ flex: '1 0 auto' }}>
               <Typography variant="overline" component="div">
-                <i>Kaynak : {item?.author}</i>
+                <i>Yazar : {item?.author}</i>
               </Typography>
               <Typography gutterBottom variant="h6" component="div">
                 {item?.title ?? "Tesla disables gaming while driving feature"}
@@ -34,7 +34,7 @@ const NewsCard = ({ item }) => {
                   "It follows an inquiry into Passenger Play, which allowed games to be played while a car was moving."}
               </Typography>
               <Typography variant="subtitle1" sx={{ color: "#ffab40" }}>
-                Continue reading...
+                Yazının Devamı...
               </Typography>
             </CardContent>
           </Box>
