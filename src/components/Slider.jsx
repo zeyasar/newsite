@@ -8,12 +8,15 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import "./styles.css";
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
-export default function Slider() {
+export default function Slider({sliderNews}) {
+  console.log(sliderNews)
   return (
     <div className="app">
       <Swiper
@@ -27,15 +30,22 @@ export default function Slider() {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+      {
+        sliderNews.map((item,key)=> (
+          <SwiperSlide key={key}>
+          <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={6} md={7}>
+          resim
+        </Grid>
+        <Grid item xs={6} md={5}>
+          yazı
+        </Grid>
+      </Grid>
+    </Box>
+          </SwiperSlide>
+        ))
+      }
       </Swiper>
     </div>
   );

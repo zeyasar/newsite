@@ -6,19 +6,31 @@ import { createContext, useState, useEffect} from "react";
 export const NewsContext = createContext()
 
 const NewsContextProvider = ({ children }) => {
+    const apiKey = process.env.REACT_APP_apiKey
 
-    const [allNews, setallNews] = useState([])
+    const [allNews, setAllNews] = useState([])
+    const [categoryData, setCategoryData] = useState([])
 
+    const getAllNews = async () => {
+        const { data } = await axios.get(`https://newsapi.org/v2/top-headlines?country=tr&apiKey=${apiKey}`);
+        setAllNews(data.articles);
+    }
     useEffect(() => {
-      axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=41d6a5347a1f449490560ba2fbea6d1b')
-      .then((response)=>setallNews(response.data.articles))
-
+      getAllNews()
     }, [])
     
-    /* console.log(allNews) */
+    console.log(allNews)
+
+    function getCategoryNews(category) {
+        axios.get(`https://newsapi.org/v2/top-headlines?country=tr&apiKey=${apiKey}&category=${category}`)
+        .then((response)=>setCategoryData(response.data.articles))
+        .catch((error)=>console.log(error)) 
+    }
 
     const value = {
         allNews,
+        getCategoryNews,
+        categoryData
 
     }
 

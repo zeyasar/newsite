@@ -5,6 +5,7 @@ import About from '../pages/About'
 import CategoryPage from '../pages/CategoryPage'
 import SearchPage from '../pages/SearchPage'
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const AppRouter = () => {
   return (
@@ -17,6 +18,7 @@ const AppRouter = () => {
                     <Route path="/:category" element={<CategoryPage/>}/>
                     <Route path="/:query" element={<SearchPage/>}/>
                 </Routes>
+                <Footer/>
             </Router>
     </>
   )
