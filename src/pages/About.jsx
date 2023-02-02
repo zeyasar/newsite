@@ -4,6 +4,11 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+
 
 export default function About() {
   return (
@@ -39,8 +44,47 @@ export default function About() {
             PostgreSQL ve SQLite konularında bilgim var. Yaptığım projelerden
             bazıları aşağıda tamamı ise Github linkinde.
           </Typography>
-          <Typography variant="body1" sx={{mt:5}}><Link href="https://github.com/zeyasar/milestone-project" target="_blank" rel="noopener" underline="none">Github </Link></Typography>
+          <Typography variant="body1" sx={{ mt: 5 }}>
+            <Link
+              href="https://github.com/zeyasar/milestone-project"
+              target="_blank"
+              rel="noopener"
+              underline="none"
+            >
+              Github
+            </Link>
+          </Typography>
+          <iframe></iframe>
         </Container>
+
+   {/*      <Container>
+        <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+              component="img"
+              alt="green iguana"
+              height="140"
+              image="/static/images/cards/contemplative-reptile.jpg"
+            />
+            <CardActions>
+              <Button size="small"><Link
+              href="https://github.com/zeyasar/milestone-project"
+              target="_blank"
+              rel="noopener"
+              underline="none"
+            >
+              Github 
+            </Link></Button>
+              <Button size="small"><Link
+              href="https://github.com/zeyasar/milestone-project"
+              target="_blank"
+              rel="noopener"
+              underline="none"
+            >
+              Demo
+            </Link></Button>
+            </CardActions>
+          </Card>
+        </Container> */}
       </Box>
     </div>
   );
