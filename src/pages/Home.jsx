@@ -34,13 +34,13 @@ const Home = () => {
       }}
     >
       <Slider sliderNews={sliderNews} />
-      <Box
+{/*       <Box
         xs={{ d: "flex" }}
         display="flex"
         alignItems="center"
         justifyContent="space-evenly"
         flexWrap="wrap"
-      >
+      > */}
         {currentNews === undefined ? (
           <Container maxWidth="sm">
             <img src={loadingGif} alt="loading_gif" style={{ width: "100%" }} />
@@ -56,7 +56,7 @@ const Home = () => {
             </Typography>
           </Container>
         )}
-      </Box>
+    {/*   </Box> */}
 
       <Container sx={{display:'flex', justifyContent:'center'}}>
         <Paginate pages={totalPagesNum} setCurrentPage={setCurrentPage} />

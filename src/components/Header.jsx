@@ -13,6 +13,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
+import { NewsContext } from "../context/NewsContext";
 
 
 const Search = styled("div")(({ theme }) => ({
@@ -70,7 +71,8 @@ const categoryPages = [
 export default function Header() {
   const navigate = useNavigate()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-
+  
+  const [searchTerm, setSearchTerm] = React.useState('')
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
     console.log(anchorElNav)
@@ -83,11 +85,16 @@ export default function Header() {
   const handleCloseCategory = (category) => {
     setAnchorElNav(null);
     console.log(category)
-    navigate(`/${category}`)
+    navigate(`/${category}` )
   }
 
   const handleCategory = (category) => {
     navigate(`/${category}`)
+  }
+
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    navigate(`/${searchTerm}`, { state:{searchTerm: `${searchTerm}`}})
   }
   
   return (
@@ -102,6 +109,7 @@ export default function Header() {
           >
             Zeynep YAŞAR
           </Typography>
+          <form onSubmit={handleSubmit}>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -109,8 +117,10 @@ export default function Header() {
             <StyledInputBase
               placeholder="Arama…"
               inputProps={{ "aria-label": "search" }}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </Search>
+          </form>
         </Toolbar>
         <Container maxWidth="xl">
           <Toolbar disableGutters>

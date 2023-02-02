@@ -16,7 +16,7 @@ const NewsCard = ({ item }) => {
 
   return (
     <>
-      <Card>
+      <Card sx={{paddingBottom: '.5rem', paddingTop:'.5rem'}}>
         <CardActionArea sx={{ display: "flex", width:'100%'}} href={item.url} target='_blank'>
           <Box sx={{ display: "flex", flexDirection: "column", width:'60%' }}>
             <CardContent sx={{ flex: '1 0 auto' }}>
@@ -29,10 +29,10 @@ const NewsCard = ({ item }) => {
               <Typography variant="body2" color="text.secondary" component="div">
               {item?.description ?? "Tesla disables gaming while driving feature"}
             </Typography>
-              <Typography variant="body2" color="text.secondary" component="div">
+              {/* <Typography variant="body2" color="text.secondary" component="div">
                 {truncateOverview(item?.content, 150) ??
                   "It follows an inquiry into Passenger Play, which allowed games to be played while a car was moving."}
-              </Typography>
+              </Typography> */}
               <Typography variant="subtitle1" sx={{ color: "#ffab40" }}>
                 Yazının Devamı...
               </Typography>

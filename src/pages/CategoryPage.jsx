@@ -1,6 +1,14 @@
-import { Box, Paper, Grid, Typography, Container } from "@mui/material";
-import Select from '@mui/joy/Select';
-import Option from '@mui/joy/Option';
+import {
+  Box,
+  Paper,
+  Grid,
+  Typography,
+  Container,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { NewsContext } from "../context/NewsContext";
@@ -20,17 +28,22 @@ const CategoryPage = () => {
     color: theme.palette.text.secondary,
   }));
 
-  const sources = Array.from(new Set(categoryData.map((source)=>(source.source.name))))
+  const sources = Array.from(
+    new Set(categoryData.map((source) => source.source.name))
+  );
   /* console.log(sources) */
 
   const [filteredNews, setFilteredNews] = useState([]);
+  const [search, setSearch] = useState("");
 
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
 
 
   useEffect(() => {
     getCategoryNews(category);
-  }, [category, getCategoryNews]);
-
+  }, [category]);
 
   return (
     <>
@@ -44,13 +57,21 @@ const CategoryPage = () => {
         <Grid container>
           <Grid item xs={4}>
             <Item sx={{ height: "100%" }}>
-              <Select color="primary" placeholder="Haber Kaynağı Seçiniz...">
-              {
-                sources.map((source, key) => (
-                    <Option value={source} key={key}>{source}</Option> 
-                ))
-              }
-              </Select>
+              <FormControl fullWidth>
+                <Select
+                  value={search}
+                  displayEmpty
+                  onChange={handleChange}
+                >
+                  <MenuItem value=''>Haber Kaynağı Seçiniz...</MenuItem>
+                  {sources.map((source, key) => (
+                  <MenuItem value={source} key={key}>
+                    {source}
+                  </MenuItem>
+                ))}
+                  
+                </Select>
+              </FormControl>
             </Item>
           </Grid>
           <Grid item xs={8}>
