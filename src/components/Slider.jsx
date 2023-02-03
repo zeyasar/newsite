@@ -90,7 +90,7 @@ export default function Slider({ sliderNews }) {
                     <Typography variant="h5" color="inherit" paragraph>
                       {item.description}
                     </Typography>
-                    <Link variant="subtitle1" href={item.url}>
+                    <Link variant="subtitle1" href={item.url} color='#fff'>
                       Devamı
                     </Link>
                   </Box>
