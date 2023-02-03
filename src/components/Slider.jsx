@@ -3,9 +3,9 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/swiper.min.css'
-import 'swiper/modules/pagination/pagination.min.css'
-import "swiper/modules/navigation/navigation.min.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 import "./styles.css";
 import Box from "@mui/material/Box";

@@ -15,6 +15,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 
 
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -153,12 +154,12 @@ export default function Header() {
               >
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" onClick={() => navigate(`/`)}>
-                    HOME
+                    ANASAYFA
                   </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" onClick={() => navigate(`/About`)}>
-                    ABOUT
+                    HAKKIMDA
                   </Typography>
                 </MenuItem>
                 {categoryPages.map((page) => (
@@ -176,19 +177,21 @@ export default function Header() {
                   onClick={()=>handleCloseCategory('')}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  HOME
+                  ANASAYFA
                 </Button>
                 <Button
+                  
                   onClick={()=>handleCloseCategory('About')}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  ABOUT
+                  HAKKIMDA
                 </Button>
               {categoryPages.map((page) => (
                 <Button
                   key={page}
                   onClick={()=>handleCloseCategory(page)}
                   sx={{ my: 2, color: "white", display: "block" }}
+
                 >
                   {page}
                 </Button>

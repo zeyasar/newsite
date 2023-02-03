@@ -8,11 +8,11 @@ import Box from "@mui/material/Box";
 
 const NewsCard = ({ item }) => {
 
-  const truncateOverview = (string, maxLength) => {
+/*   const truncateOverview = (string, maxLength) => {
     if (!string) return null;
     if (string.length <= maxLength) return string;
     return `${string.substring(0, maxLength)} ...`;
-  };
+  }; */
 
   return (
     <>
