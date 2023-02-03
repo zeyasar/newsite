@@ -84,7 +84,6 @@ export default function Header() {
 
   const handleCloseCategory = (category) => {
     setAnchorElNav(null);
-    console.log(category)
     navigate(`/${category}` )
   }
 

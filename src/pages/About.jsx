@@ -12,15 +12,7 @@ import Button from '@mui/material/Button';
 
 export default function About() {
   return (
-    <div
-      style={{
-        backgroundImage: `url(https://r.resimlink.com/Zg9SXGaKAMV5.png)`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
-    >
+    <>
       <Box
         sx={{
           display: "flex",
@@ -57,7 +49,7 @@ export default function About() {
           <iframe></iframe>
         </Container>
 
-   {/*      <Container>
+        <Container>
         <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               component="img"
@@ -84,8 +76,8 @@ export default function About() {
             </Link></Button>
             </CardActions>
           </Card>
-        </Container> */}
+        </Container>
       </Box>
-    </div>
+    </>
   );
 }
