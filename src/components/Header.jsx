@@ -13,7 +13,6 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
-import { NewsContext } from "../context/NewsContext";
 
 
 const Search = styled("div")(({ theme }) => ({
@@ -63,7 +62,7 @@ const categoryPages = [
   "entertainment",
   "general",
   "health",
-  "science",
+  "science", 
   "sports",
   "technology",
 ];
@@ -93,7 +92,7 @@ export default function Header() {
 
   const handleSubmit = (e) =>{
     e.preventDefault()
-    navigate(`/${searchTerm}`, { state:{searchTerm: `${searchTerm}`}})
+    navigate(`search/${searchTerm}`, { state:{searchTerm: `${searchTerm}`}})
   }
   
   return (

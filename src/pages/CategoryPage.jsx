@@ -5,7 +5,6 @@ import {
   Typography,
   Container,
   FormControl,
-  InputLabel,
   MenuItem,
   Select,
 } from "@mui/material";
@@ -39,20 +38,23 @@ const CategoryPage = () => {
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
-
+console.log(search);
+console.log(filteredNews);
 
   useEffect(() => {
    
     if(categoryData){
-      const filteredNews = categoryData.filter((data)=>{
-        data.source.name.includes(search)
+      const filterDatas = categoryData.filter((data)=>{
+       return data.source.name.includes(search)
       })
+      setFilteredNews( filterDatas )
     }
   }, [ search]);
 
   useEffect(() => {
     getCategoryNews(category);
     setSearch('')
+    setFilteredNews('')
   }, [category])
   
 
@@ -101,6 +103,10 @@ const CategoryPage = () => {
                     style={{ width: "100%" }}
                   />
                 </Container>
+              ) : filteredNews.length > 0 ? (
+                filteredNews.map((item, index) => {
+                  return <NewsCard key={index} item={item} />;
+                })
               ) : categoryData ? (
                 categoryData.map((item, index) => {
                   return <NewsCard key={index} item={item} />;
