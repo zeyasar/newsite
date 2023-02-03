@@ -42,8 +42,19 @@ const CategoryPage = () => {
 
 
   useEffect(() => {
+   
+    if(categoryData){
+      const filteredNews = categoryData.filter((data)=>{
+        data.source.name.includes(search)
+      })
+    }
+  }, [ search]);
+
+  useEffect(() => {
     getCategoryNews(category);
-  }, [category]);
+    setSearch('')
+  }, [category])
+  
 
   return (
     <>
